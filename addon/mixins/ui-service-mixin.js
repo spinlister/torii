@@ -73,7 +73,7 @@ var ServicesMixin = Ember.Mixin.create({
         // the message will be received and the window will close immediately.
         service.timeout = Ember.run.later(service, function() {
           reject(new Error("remote was closed, authorization was denied, or a authentication message otherwise not received before the window closed."));
-        }, 100);
+        }, 5000);
       });
 
       Ember.$(window).on('storage.torii', function(event){
